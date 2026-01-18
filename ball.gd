@@ -36,14 +36,14 @@ func _physics_process(delta: float) -> void:
 	else:
 		for i in get_slide_collision_count():
 			if get_slide_collision(i).get_collider().is_in_group("player"):
-				get_tree().quit()
+				$"../Player".restart()
 		velocity.y = - lastV.y
 	rotate(deg_to_rad(velocity.x/100))
 	if is_on_wall():
 		velocity.x = -lastV.x
 		for i in get_slide_collision_count():
 			if get_slide_collision(i).get_collider().is_in_group("player"):
-				get_tree().quit()
+				$"../Player".restart()
 	else:
 		lastV.x = velocity.x
 	move_and_slide()
