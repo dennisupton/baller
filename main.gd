@@ -62,6 +62,7 @@ func load_highscore_js() -> int:
 		)
 		if result != null:
 			return int(result)
+		print("load highscore result : "+str(result))
 	else:
 		$highscore.hide()
 	save_highscore_js(0)
