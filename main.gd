@@ -29,7 +29,8 @@ func addToScore():
 		save_highscore_js(score)
 		highscore = score
 		$highscore.text = "Highscore : "+ str(highscore)
-
+	elif highscore > 0:
+		$highscore.text = "Highscore : "+ str(highscore)
 
 func empty():
 	for i in get_children():
