@@ -8,7 +8,6 @@ var health = 20
 var startHealth = 20
 var startTime
 var wait
-
 func _ready() -> void:
 	if wait == null:
 		wait = false
