@@ -16,9 +16,15 @@ func _ready() -> void:
 	startTime = Time.get_ticks_msec()
 	health = startHealth
 	$Health.text = str(health)
+
 	$Circle.modulate = Color.from_hsv(fmod(startHealth * 0.2, 1.0), 1.0, 1.0)
+	$Circle/inner.visible = startHealth >1
+	var c = Color.from_hsv(fmod(startHealth * 0.2, 1.0), 1.0, 1.0)
+	c.a = 0.5
+	$Circle/inner.modulate= c#$Circle/inner.modulate.darkened(0.3)
 func _physics_process(delta: float) -> void:
 	if Time.get_ticks_msec() - startTime > 100 or not wait:
+		$Circle/inner.scale = Vector2(float(health)/float(startHealth),float(health)/float(startHealth))
 		$Health.text = str(health)
 		if health <1:
 			$"..".addToScore()

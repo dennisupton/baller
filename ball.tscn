@@ -23,6 +23,9 @@ shape = SubResource("CircleShape2D_1bvp3")
 scale = Vector2(0.17750001, 0.1775)
 texture = ExtResource("2_41u45")
 
+[node name="inner" type="Sprite2D" parent="Circle"]
+texture = ExtResource("2_41u45")
+
 [node name="Health" type="Label" parent="."]
 offset_left = -62.0
 offset_top = -34.0
