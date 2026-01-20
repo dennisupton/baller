@@ -138,10 +138,6 @@ func _on_pause_pressed() -> void:
 
 
 
-func _on_set_name_pressed() -> void:
-	username = $CanvasLayer/Pause/Container/name.text
-	save_name_js(username)
-
 
 func save_name_js(s):
 	if OS.has_feature("web"):
@@ -160,3 +156,9 @@ func load_name_js():
 		print("load name result : "+result)
 	return ""
 	
+
+
+func _on_name_text_submitted(new_text: String) -> void:
+	print("new username")
+	username = new_text
+	save_name_js(new_text)
