@@ -37,8 +37,14 @@ func _physics_process(delta: float) -> void:
 	else:
 		direction *= 100
 	if direction:
+		if direction > 0:
+			$Triangle.rotation_degrees = lerp($Triangle.rotation_degrees,10.0,0.5)
+		else:
+			$Triangle.rotation_degrees = lerp($Triangle.rotation_degrees,-10.0,0.5)
 		velocity.x = direction/100 * SPEED
 	else:
+		$Triangle.rotation_degrees = lerp($Triangle.rotation_degrees,0.0,0.5)
+
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	if !freeze:
 		move_and_slide()

@@ -1,10 +1,11 @@
-[gd_scene load_steps=26 format=3 uid="uid://cjt0xbpo7iac5"]
+[gd_scene load_steps=27 format=3 uid="uid://cjt0xbpo7iac5"]
 
 [ext_resource type="Script" uid="uid://cyh211hlu0nlj" path="res://main.gd" id="1_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://bva8fsuxf8o55" path="res://crown.svg" id="2_kek77"]
 [ext_resource type="Script" uid="uid://dnwq0ko6oqchr" path="res://leaderboard.gd" id="3_1bvp3"]
 [ext_resource type="Script" uid="uid://w61nm3ytyr5o" path="res://player.gd" id="3_h2yge"]
 [ext_resource type="Theme" uid="uid://b1vyvai5vn4ii" path="res://theme.tres" id="3_lquwl"]
+[ext_resource type="Texture2D" uid="uid://cicqqd638ramn" path="res://triangle.svg" id="3_vivmo"]
 [ext_resource type="Script" uid="uid://cihevqa21qpf8" path="res://back.gd" id="3_w48qg"]
 [ext_resource type="Texture2D" uid="uid://bsnkgt6vuuiqy" path="res://pause.svg" id="5_7mycd"]
 [ext_resource type="Script" uid="uid://c81w643hqdeht" path="res://pause.gd" id="5_272bh"]
@@ -83,12 +84,11 @@ script = ExtResource("3_h2yge")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 shape = SubResource("RectangleShape2D_lquwl")
 
-[node name="ColorRect" type="ColorRect" parent="Player"]
-offset_left = -46.0
-offset_top = -14.0
-offset_right = 46.0
-offset_bottom = 14.0
-color = Color(0.12941177, 0.46666667, 1, 1)
+[node name="Triangle" type="Sprite2D" parent="Player"]
+z_index = 2
+position = Vector2(7.390976e-06, -27.999992)
+scale = Vector2(0.11375002, 0.11375002)
+texture = ExtResource("3_vivmo")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 visible = false
@@ -105,10 +105,10 @@ position = Vector2(571.5, 614.5)
 shape = SubResource("RectangleShape2D_0xm2m")
 
 [node name="ColorRect" type="ColorRect" parent="Box/Floor"]
-offset_left = -1.8056481
+offset_left = -1.014274
 offset_top = 641.3885
-offset_right = 68.58278
-offset_bottom = 1793.105
+offset_right = 69.37415
+offset_bottom = 1792.3137
 rotation = -1.5707964
 color = Color(0.22352941, 0.25490198, 0.6313726, 1)
 
@@ -169,7 +169,6 @@ grow_vertical = 2
 script = ExtResource("3_w48qg")
 
 [node name="Leaderboard" type="Panel" parent="CanvasLayer"]
-visible = false
 z_index = 2
 anchors_preset = -1
 anchor_left = 0.536
@@ -187,10 +186,9 @@ script = ExtResource("3_1bvp3")
 [node name="VBoxContainer" type="ScrollContainer" parent="CanvasLayer/Leaderboard"]
 layout_mode = 0
 offset_left = 55.0
-offset_top = 39.0
-offset_right = 526.0
+offset_top = 37.0
+offset_right = 773.0
 offset_bottom = 1061.0
-vertical_scroll_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Leaderboard/VBoxContainer"]
 layout_mode = 2

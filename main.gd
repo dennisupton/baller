@@ -13,7 +13,7 @@ var r = RandomNumberGenerator.new()
 func _ready() -> void:
 	highscore = load_highscore_js()
 	if highscore > 0:
-		$CanvasLayer/highscore/highscore.text = "Highscore : "+ str(highscore)
+		$CanvasLayer/highscore/highscore.text = str(highscore)
 	username = load_name_js()
 	if username:
 		$CanvasLayer/Pause/Container/name.text = username
