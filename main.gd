@@ -51,6 +51,9 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("Pause"):
 		_on_pause_pressed()
 func restart():
+	for i in get_children():
+		if i.is_in_group("ball"):
+			i.queue_free()
 	ante = 1
 	var lastScore = score
 	score = 0
