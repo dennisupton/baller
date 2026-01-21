@@ -181,10 +181,10 @@ func _on_enter_name_pressed() -> void:
 		await SilentWolf.Scores.save_score(username, highscore)
 	elif scores.scores[0] and scores.scores[0].score < highscore:
 		for i in scores:
-			SilentWolf.Scores.delete_score(i)
+			await SilentWolf.Scores.delete_score(i)
 		await SilentWolf.Scores.save_score(username, highscore)
 	$CanvasLayer/saving.hide()
-	$CanvasLayer/Pause.visible = not $CanvasLayer/Pause.visible
+	$CanvasLayer/Pause.visible = false
 	if $CanvasLayer/Pause.visible:
 		Engine.time_scale = 0
 	else:
