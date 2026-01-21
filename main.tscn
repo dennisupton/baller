@@ -59,10 +59,10 @@ draw_center = false
 script = ExtResource("1_1bvp3")
 
 [node name="highscore" type="HBoxContainer" parent="."]
-offset_left = 45.0
-offset_top = 42.0
-offset_right = 257.0
-offset_bottom = 133.0
+offset_left = 66.0
+offset_top = -451.0
+offset_right = 278.0
+offset_bottom = -360.0
 
 [node name="TextureRect" type="TextureRect" parent="highscore"]
 layout_mode = 2
