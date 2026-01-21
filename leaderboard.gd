@@ -16,12 +16,14 @@ func wait(seconds: float) -> void:
 
 
 func loadLeaderboard():
-	var sw_result: Dictionary = await SilentWolf.Scores.get_scores().sw_get_scores_complete
+	var sw_result: Dictionary = await SilentWolf.Scores.get_scores(10).sw_get_scores_complete
 	for x in range(1,$VBoxContainer.get_child_count()):
 		$VBoxContainer.get_child(x).queue_free()
-	
+	var idx = 1
 	for i in sw_result.scores:
 		var child = leaderboardItem.instantiate()
 		child.get_child(0).text = str(i.player_name)
 		child.get_child(1).text = str(int(i.score))
+		child.get_child(0).get_child(0).text = str(idx)
 		$VBoxContainer.add_child(child)
+		idx += 1
