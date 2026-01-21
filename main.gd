@@ -97,6 +97,8 @@ func newBall():
 	child.startHealth = ante
 	child.velocity.x = -200 * dir
 	child.position = Vector2(r.randi_range(200,970),94)
+	var s = getBallScale(ante)
+	child.scale = Vector2(s,s)
 	#child.scale = Vector2(log(ante+2)/log(10),log(ante+2)/log(10))
 	child.wait = true
 	add_child(child)
@@ -158,6 +160,10 @@ func load_name_js():
 		print("load name result : "+result)
 	return ""
 	
+
+func getBallScale(x):
+	return (29*x - (26**(2/1.9) * x)**(1.9/2)) / (10*x - (5**(2/1.9) * x)**(1.9/2))
+
 
 
 func _on_enter_name_pressed() -> void:

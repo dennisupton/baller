@@ -30,10 +30,12 @@ func _physics_process(delta: float) -> void:
 		if health <1:
 			$"..".addToScore()
 			if startHealth >1 :
+				var s = $"..".getBallScale(startHealth/2)
 				var child = $"..".ball.instantiate()
 				child.health = startHealth/2
 				child.startHealth = startHealth/2
-				child.scale = 0.8*scale
+				#child.scale = 0.8*scale
+				child.scale = Vector2(s,s)
 				child.velocity.x = -200
 				child.position = position-Vector2(20,0)
 				child.position.y = 102
@@ -41,7 +43,8 @@ func _physics_process(delta: float) -> void:
 				child = $"..".ball.instantiate()
 				child.health = startHealth/2
 				child.startHealth = startHealth/2
-				child.scale = 0.8*scale
+				#child.scale = 0.8*scale
+				child.scale = Vector2(s,s)
 				child.position = position+Vector2(20,0)
 				child.position.y = 102
 				$"..".add_child(child)
