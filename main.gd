@@ -57,11 +57,11 @@ func _process(_delta: float) -> void:
 		AudioServer.set_bus_mute(0, true)
 	else:
 		AudioServer.set_bus_mute(0, false)
-	RenderingServer.set_default_clear_color(lerp(RenderingServer.get_default_clear_color(),backgroundAimColor, 0.01))
-	$Box/Floor/ColorRect.color = lerp(RenderingServer.get_default_clear_color(),backgroundAimColor, 0.01).darkened(0.3)
-	$Box/Floor2/ColorRect.color = lerp(RenderingServer.get_default_clear_color(),backgroundAimColor, 0.01).darkened(0.3)
-	$Box/Wall/ColorRect.color = lerp(RenderingServer.get_default_clear_color(),backgroundAimColor, 0.01).darkened(0.3)
-	$Box/Wall2/ColorRect.color = lerp(RenderingServer.get_default_clear_color(),backgroundAimColor, 0.01).darkened(0.3)
+	RenderingServer.set_default_clear_color(lerp(RenderingServer.get_default_clear_color(),backgroundAimColor, 0.005))
+	$Box/Floor/ColorRect.color = lerp(RenderingServer.get_default_clear_color(),backgroundAimColor, 0.005).darkened(0.3)
+	$Box/Floor2/ColorRect.color = lerp(RenderingServer.get_default_clear_color(),backgroundAimColor, 0.005).darkened(0.3)
+	$Box/Wall/ColorRect.color = lerp(RenderingServer.get_default_clear_color(),backgroundAimColor, 0.005).darkened(0.3)
+	$Box/Wall2/ColorRect.color = lerp(RenderingServer.get_default_clear_color(),backgroundAimColor, 0.005).darkened(0.3)
 func restart():
 	$SFX/lose.play()
 	for i in get_children():
