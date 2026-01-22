@@ -221,15 +221,14 @@ horizontal_alignment = 2
 [node name="Pause" type="Panel" parent="CanvasLayer"]
 visible = false
 z_index = 2
-anchors_preset = -1
+anchors_preset = 13
 anchor_left = 0.5
-anchor_top = -0.44500002
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -429.0
-offset_top = 624.64
-offset_right = 436.0
-offset_bottom = -85.0
+offset_left = -339.0
+offset_top = 136.0
+offset_right = 342.0
+offset_bottom = -233.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -310,18 +309,29 @@ label_settings = SubResource("LabelSettings_h2yge")
 [node name="right" type="HBoxContainer" parent="CanvasLayer"]
 anchors_preset = 10
 anchor_right = 1.0
-offset_left = 468.0
+offset_left = 294.0
 offset_top = 46.0
-offset_right = -35.0
+offset_right = -21.0
 offset_bottom = 137.0
 grow_horizontal = 2
+theme_override_constants/separation = 29
 alignment = 2
 
 [node name="remember" type="Label" parent="CanvasLayer/right"]
+visible = false
 z_index = -1
 layout_mode = 2
 text = "Remember to set username ->"
 label_settings = SubResource("LabelSettings_272bh")
+
+[node name="showLeaderboard" type="Button" parent="CanvasLayer/right"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("3_lquwl")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ycdy4")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ycdy4")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ycdy4")
+icon = ExtResource("6_272bh")
 
 [node name="pause" type="Button" parent="CanvasLayer/right"]
 z_index = 1
@@ -333,15 +343,6 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_w48qg")
 theme_override_styles/hover = SubResource("StyleBoxFlat_vivmo")
 icon = ExtResource("5_7mycd")
 icon_alignment = 1
-
-[node name="showLeaderboard" type="Button" parent="CanvasLayer/right"]
-layout_mode = 2
-focus_mode = 0
-theme = ExtResource("3_lquwl")
-theme_override_styles/normal = SubResource("StyleBoxFlat_ycdy4")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_ycdy4")
-theme_override_styles/hover = SubResource("StyleBoxFlat_ycdy4")
-icon = ExtResource("6_272bh")
 
 [node name="SFX" type="Node2D" parent="."]
 
@@ -366,5 +367,5 @@ stream = ExtResource("13_ycdy4")
 [connection signal="pressed" from="CanvasLayer/Pause/Container/Restart" to="." method="restart"]
 [connection signal="text_submitted" from="CanvasLayer/Pause/Container/username/name" to="." method="_on_name_text_submitted"]
 [connection signal="pressed" from="CanvasLayer/Pause/Container/username/enterName" to="." method="_on_enter_name_pressed"]
-[connection signal="pressed" from="CanvasLayer/right/pause" to="." method="_on_pause_pressed"]
 [connection signal="pressed" from="CanvasLayer/right/showLeaderboard" to="." method="_on_show_leaderboard_pressed"]
+[connection signal="pressed" from="CanvasLayer/right/pause" to="." method="_on_pause_pressed"]

@@ -9,6 +9,7 @@ var leaderboard
 var username
 var newHighscore = false
 var r = RandomNumberGenerator.new()
+var backgroundAimColor = Color.BLUE
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	highscore = load_highscore_js()
@@ -56,6 +57,11 @@ func _process(_delta: float) -> void:
 		AudioServer.set_bus_mute(0, true)
 	else:
 		AudioServer.set_bus_mute(0, false)
+	RenderingServer.set_default_clear_color(lerp(RenderingServer.get_default_clear_color(),backgroundAimColor, 0.01))
+	$Box/Floor/ColorRect.color = lerp(RenderingServer.get_default_clear_color(),backgroundAimColor, 0.01).darkened(0.3)
+	$Box/Floor2/ColorRect.color = lerp(RenderingServer.get_default_clear_color(),backgroundAimColor, 0.01).darkened(0.3)
+	$Box/Wall/ColorRect.color = lerp(RenderingServer.get_default_clear_color(),backgroundAimColor, 0.01).darkened(0.3)
+	$Box/Wall2/ColorRect.color = lerp(RenderingServer.get_default_clear_color(),backgroundAimColor, 0.01).darkened(0.3)
 func restart():
 	$SFX/lose.play()
 	for i in get_children():
@@ -106,6 +112,8 @@ func empty():
 func newBall():
 	var child = ball.instantiate()
 	child.startHealth = ante
+	setBackgroundColor(Color.from_hsv(fmod((ante+2) * 0.2, 1.0), 1.0, 1.0))
+
 	child.velocity.x = -200 * dir
 	child.position = Vector2(r.randi_range(200,970),94)
 	var s = getBallScale(ante)
@@ -207,3 +215,7 @@ func _on_enter_name_pressed() -> void:
 		print("local highscore is lower")
 	Engine.time_scale = 1
 	$CanvasLayer/saving.hide()
+
+
+func setBackgroundColor(color):
+	backgroundAimColor = color.darkened(0.3)
