@@ -7,8 +7,8 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	position.y += -50
+func _process(delta: float) -> void:
+	position.y += -50 * delta*100
 	if colliding():
 		$"../SFX/hit".play()
 		colliding().health -= 1

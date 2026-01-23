@@ -24,7 +24,7 @@ outline_size = 15
 outline_color = Color(1, 1, 1, 0.5882353)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lquwl"]
-size = Vector2(90, 28)
+size = Vector2(69, 24)
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ig7tw"]
 friction = 0.0
@@ -84,6 +84,7 @@ collision_mask = 3
 script = ExtResource("3_h2yge")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(0.5, -2)
 shape = SubResource("RectangleShape2D_lquwl")
 
 [node name="Triangle" type="Sprite2D" parent="Player"]
@@ -161,7 +162,6 @@ color = Color(0.2229402, 0.25676447, 0.63155806, 1)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="back" type="Control" parent="CanvasLayer"]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -181,38 +181,48 @@ offset_left = -269.88
 offset_top = 87.0
 offset_right = 269.12
 offset_bottom = -87.0
-grow_horizontal = 2
-grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme = ExtResource("3_lquwl")
 script = ExtResource("3_1bvp3")
 
-[node name="VBoxContainer" type="ScrollContainer" parent="CanvasLayer/Leaderboard"]
-layout_mode = 0
-offset_left = 55.0
-offset_top = 37.0
-offset_right = 773.0
-offset_bottom = 1061.0
+[node name="Scroll" type="ScrollContainer" parent="CanvasLayer/Leaderboard"]
+z_index = 4
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 56.0
+offset_top = 18.0
+offset_right = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Leaderboard/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Leaderboard/Scroll"]
 layout_mode = 2
+size_flags_vertical = 0
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Leaderboard/VBoxContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Leaderboard/Scroll/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 90
+alignment = 1
 
-[node name="Place" type="Label" parent="CanvasLayer/Leaderboard/VBoxContainer/VBoxContainer/HBoxContainer"]
+[node name="Place" type="Label" parent="CanvasLayer/Leaderboard/Scroll/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "#"
 label_settings = SubResource("LabelSettings_x1gaq")
 
-[node name="Name" type="Label" parent="CanvasLayer/Leaderboard/VBoxContainer/VBoxContainer/HBoxContainer"]
+[node name="Name" type="Label" parent="CanvasLayer/Leaderboard/Scroll/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "Name"
 label_settings = SubResource("LabelSettings_x1gaq")
 
-[node name="Score" type="Label" parent="CanvasLayer/Leaderboard/VBoxContainer/VBoxContainer/HBoxContainer"]
+[node name="Score" type="Label" parent="CanvasLayer/Leaderboard/Scroll/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "Score"
 label_settings = SubResource("LabelSettings_x1gaq")
@@ -362,6 +372,7 @@ max_polyphony = 10
 
 [node name="lose" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("13_ycdy4")
+volume_db = -15.127
 
 [connection signal="pressed" from="CanvasLayer/Pause/Container/Back" to="CanvasLayer/Pause" method="_on_back_pressed"]
 [connection signal="pressed" from="CanvasLayer/Pause/Container/Restart" to="." method="restart"]

@@ -112,7 +112,7 @@ func empty():
 func newBall():
 	var child = ball.instantiate()
 	child.startHealth = ante
-	setBackgroundColor(Color.from_hsv(fmod((ante+2) * 0.2, 1.0), 1.0, 1.0))
+	setBackgroundColor(Color.from_hsv(fmod((ante) * 0.2, 1.0), 1.0, 1.0))
 
 	child.velocity.x = -200 * dir
 	child.position = Vector2(r.randi_range(200,970),94)
@@ -181,7 +181,7 @@ func load_name_js():
 		if result != null:
 			return result
 		print("load name result : "+result)
-	return ""
+	return "" 
 	
 
 func getBallScale(x):

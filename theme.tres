@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=6 format=3 uid="uid://b1vyvai5vn4ii"]
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://b1vyvai5vn4ii"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h2yge"]
 content_margin_left = 10.0
@@ -44,8 +44,19 @@ corner_radius_bottom_left = 20
 shadow_color = Color(0.12225228, 0.12225222, 0.12225223, 0.61960787)
 shadow_size = 130
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wvktn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e1x85"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vj6dk"]
+bg_color = Color(0.8633702, 0.20863488, 0.42633626, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cjfk0"]
-bg_color = Color(0.12941177, 0.46666667, 1, 1)
+bg_color = Color(0.98755604, 0.6951045, 0.75276554, 1)
 corner_radius_top_left = 40
 corner_radius_top_right = 40
 corner_radius_bottom_right = 40
@@ -62,6 +73,9 @@ LineEdit/font_sizes/font_size = 43
 LineEdit/styles/focus = SubResource("StyleBoxFlat_h2yge")
 LineEdit/styles/normal = SubResource("StyleBoxFlat_h2yge")
 Panel/styles/panel = SubResource("StyleBoxFlat_0xm2m")
-VBoxContainer/constants/separation = 95
+ScrollContainer/styles/focus = SubResource("StyleBoxEmpty_wvktn")
+ScrollContainer/styles/panel = SubResource("StyleBoxEmpty_e1x85")
+VBoxContainer/constants/separation = 65
+VScrollBar/styles/grabber = SubResource("StyleBoxFlat_vj6dk")
 VScrollBar/styles/scroll = SubResource("StyleBoxFlat_cjfk0")
 VScrollBar/styles/scroll_focus = SubResource("StyleBoxFlat_cjfk0")

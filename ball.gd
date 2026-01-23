@@ -18,7 +18,7 @@ func _ready() -> void:
 	health = startHealth
 	$Health.text = str(health)
 
-	$Circle.modulate = Color.from_hsv(fmod((startHealth+2 )* 0.2, 1.0), 1.0, 1.0)
+	$Circle.modulate = Color.from_hsv(fmod((startHealth )* 0.2, 1.0), 1.0, 1.0)
 	$Circle/inner.visible = startHealth >1
 	var c = Color.from_hsv(fmod((startHealth+2 ) * 0.2, 1.0), 1.0, 1.0)
 	c.a = 0.5
